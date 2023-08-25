@@ -1,0 +1,34 @@
+{
+  "page": {
+    "header": {
+      "signup": "Únete",
+      "signIn": "Inicia sesión",
+      "logout": "Cerrar sesión"
+    },
+    "home": {
+      "title": "Bienvenida hogar",
+      "category": "Canciones más recientes",
+      "songs": "Lista de canciones!",
+      "liked": "Canciones gustadas"
+    },
+    "navigation": {
+      "home": "Hogar",
+      "search": "Buscar"
+    },
+    "library": {
+      "title": "Tu biblioteca",
+      "songs": "Lista de canciones!"
+    }
+  },
+  "component": {
+    "login": {
+      "title": "Bienvenido Atrás",
+      "description": "Inicie sesión en su cuenta",
+      "username": "Correo electrónico o nombre de usuario",
+      "password": "Contraseña",
+      "loginButton": "Iniciar sesión",
+      "signUpMessage": "No tienes una cuenta?",
+      "signUpLink": "Regístrate en Spotify"
+    }
+  }
+}

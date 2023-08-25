@@ -1,9 +1,14 @@
 "use client";
 
 import AuthModal from "@/components/AuthModal";
+import { Login } from "@/types/login";
 import { useEffect, useState } from "react";
 
-const ModalProvider = () => {
+interface ModalProviderProps {
+  loginComponent: Login;
+}
+
+const ModalProvider: React.FC<ModalProviderProps> = ({ loginComponent }) => {
   const [IsMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -16,7 +21,7 @@ const ModalProvider = () => {
 
   return (
     <>
-      <AuthModal />
+      <AuthModal login={loginComponent} />
     </>
   );
 };

@@ -1,0 +1,34 @@
+{
+  "page": {
+    "header": {
+      "signup": "Sign up",
+      "signIn": "Log In",
+      "logout": "Logout"
+    },
+    "home": {
+      "title": "Welcome back",
+      "category": "Newest songs",
+      "songs": "List of songs!",
+      "liked": "Liked Songs"
+    },
+    "navigation": {
+      "home": "Home",
+      "search": "Search"
+    },
+    "library": {
+      "title": "Your Library",
+      "songs": "List of songs!"
+    }
+  },
+  "component": {
+    "login": {
+      "title": "Welcome back",
+      "description": "Login to your account",
+      "username": "Email or Username",
+      "password": "Password",
+      "loginButton": "Login",
+      "signUpMessage": "Don't have an account?",
+      "signUpLink": "Sign up for Spotify"
+    }
+  }
+}
