@@ -1,5 +1,7 @@
 "use client";
 
+import { Lib } from "@/types/library";
+import { Navigation } from "@/types/navigation";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi";
@@ -10,21 +12,23 @@ import SidebarItem from "./SidebarItem";
 
 interface SidebarProps {
   children: React.ReactNode;
+  navigation: Navigation;
+  library: Lib;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ children }) => {
+const Sidebar: React.FC<SidebarProps> = ({ children, navigation, library }) => {
   const pathname = usePathname();
   const routes = useMemo(
     () => [
-      { label: "Home", active: pathname !== "/home", href: "/", icon: HiHome },
+      { label: navigation.home, active: pathname !== "/home", href: "/", icon: HiHome },
       {
-        label: "Search",
+        label: navigation.search,
         active: pathname !== "/search",
         href: "/search",
         icon: BiSearch,
       },
     ],
-    [pathname]
+    [pathname, navigation]
   );
 
   return (
@@ -38,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           </div>
         </Box>
         <Box className="overflow-y-auto h-full">
-          <Library />
+          <Library library={library}/>
         </Box>
       </div>
       <main className="h-full flex-1 overflow-y-auto py-2">{children}</main>

@@ -1,4 +1,5 @@
 import useAuthModal from "@/hooks/useAuthModal";
+import { Login } from "@/types/login";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import {
@@ -9,8 +10,12 @@ import {
 } from "react";
 import Modal from "./Modal";
 
-const AuthModal = () => {
-  const { data, status} = useSession();
+interface AuthModalProps {
+  login: Login;
+}
+
+const AuthModal: React.FC<AuthModalProps> = ({ login }) => {
+  const { data, status } = useSession();
   const { onClose, isOpen } = useAuthModal();
   const [error, setError] = useState("");
   const [userInfo, setUserInfo] = useState({ email: "", password: "" });
@@ -63,8 +68,8 @@ const AuthModal = () => {
 
   return (
     <Modal
-      title="Welcome back"
-      description="Login to your account"
+      title={login.title}
+      description={login.description}
       isOpen={isOpen}
       onChange={onChange}
     >
@@ -76,7 +81,7 @@ const AuthModal = () => {
                 htmlFor="emailOrUsername"
                 className="block font-medium mb-2"
               >
-                Email or Username
+                {login.username}
               </label>
               <input
                 type="email"
@@ -90,7 +95,7 @@ const AuthModal = () => {
             </div>
             <div className="mb-6">
               <label htmlFor="password" className="block font-medium mb-2">
-                Password
+                {login.password}
               </label>
               <input
                 type="password"
@@ -106,14 +111,14 @@ const AuthModal = () => {
               type="submit"
               className="w-full bg-green-500 text-white font-medium py-2 rounded-md hover:bg-green-600 transition duration-200"
             >
-              Login
+              {login.loginButton}
             </button>
           </form>
           <div className="mt-4 text-center">
             <p className="text-sm">
-              Don&apos;t have an account?
+              {login.signUpMessage}
               <Link className="text-green-500" href="/signup">
-                &nbsp;Sign up for Spotify
+                &nbsp;{login.signUpLink}
               </Link>
             </p>
           </div>

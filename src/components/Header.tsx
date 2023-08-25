@@ -1,6 +1,7 @@
 "use client";
 
 import useAuthModal from "@/hooks/useAuthModal";
+import { Header } from "@/types/header";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { BiSearch } from "react-icons/bi";
@@ -12,16 +13,17 @@ import Button from "./Button";
 
 interface HeaderProps {
   children: React.ReactNode;
+  lang: Header;
   className?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ children, className }) => {
+const Header: React.FC<HeaderProps> = ({ children, lang, className }) => {
   const authModal = useAuthModal();
   const router = useRouter();
   const { data, status } = useSession();
 
   const handleLogout = () => {
-    signOut()
+    signOut();
   };
 
   return (
@@ -58,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           {data ? (
             <div className="flex gap-x-4 items-center">
               <Button onClick={handleLogout} className="bg-white px-6 py-2">
-                Logout
+                {lang.logout}
               </Button>
               <Button
                 onClick={() => router.push("/account")}
@@ -74,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                   onClick={authModal.onOpen}
                   className="bg-transparent text-neutral-300 font-medium"
                 >
-                  Sign up
+                  {lang.signup}
                 </Button>
               </div>
               <div>
@@ -82,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
                   onClick={authModal.onOpen}
                   className="bg-white px-6 py-2"
                 >
-                  Log In
+                  {lang.signIn}
                 </Button>
               </div>
             </>
