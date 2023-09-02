@@ -1,8 +1,8 @@
 "use client";
 
-import useAuthModal from "@/hooks/useAuthModal";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbPlaylist } from "react-icons/tb";
+import useAuthModal from "../hooks/useAuthModal";
 
 interface LibraryProps {
   library: { title: string; songs: string };
