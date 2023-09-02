@@ -1,7 +1,7 @@
 "use client";
 
 import useAuthModal from "@/hooks/useAuthModal";
-import { Header } from "@/types/header";
+import { IHeader } from "@/types/header";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { BiSearch } from "react-icons/bi";
@@ -11,9 +11,9 @@ import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { twMerge } from "tailwind-merge";
 import Button from "./Button";
 
-interface HeaderProps {
+export interface HeaderProps {
   children: React.ReactNode;
-  lang: Header;
+  lang: IHeader;
   className?: string;
 }
 
